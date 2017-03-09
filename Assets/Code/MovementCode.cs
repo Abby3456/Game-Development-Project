@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementCode : MonoBehaviour {
 
-	[HideInInspector] public bool facingRight = true;
+	[HideInInspector] public bool facingRight = true; //unity3d.com Creating a Simple Platformer Game, Simple Platformer Controller
 	[HideInInspector] public bool jump = false;
 	public float moveForce = 365f;
 	public float maxSpeed = 5f;
