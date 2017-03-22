@@ -11,12 +11,17 @@ public class MovementCode : MonoBehaviour {
 	public float jumpForce = 1000f;
 	public Transform groundCheck;
 
+	public AudioClip jumpSound;
+	private AudioSource source;
+
 	private bool grounded = false;
 	private Rigidbody2D rb2d;
 
 	void Awake () {
 
 		rb2d = GetComponent<Rigidbody2D> ();
+
+		source = GetComponent<AudioSource> ();
 
 	}
 
@@ -28,11 +33,15 @@ public class MovementCode : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
+
 		grounded = Physics2D.Linecast (transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Environment"));
 
 		if (Input.GetButtonDown ("Jump") && grounded) {
 
 			jump = true;
+
+			source.PlayOneShot (jumpSound, 1f);
 
 		}
 

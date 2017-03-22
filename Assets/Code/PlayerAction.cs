@@ -29,7 +29,18 @@ public class PlayerAction : MonoBehaviour {
 
 	public GameObject Pan;
 
+	public AudioClip ASound;
+	public AudioClip BSound;
+	public AudioClip CSound;
+	public AudioClip DSound;
+	public AudioClip Damage;
+	private AudioSource source;
 
+	void Awake () {
+
+		source = GetComponent<AudioSource> ();
+
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -70,6 +81,8 @@ public class PlayerAction : MonoBehaviour {
 
 			score.riceSpent += 1;
 
+			source.PlayOneShot (CSound, 1f);
+
 
 		}
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -82,6 +95,8 @@ public class PlayerAction : MonoBehaviour {
 			newObject.transform.position = newObjPos - Offset;
 
 			score.riceSpent += 1;
+
+			source.PlayOneShot (CSound, 1f);
 
 		}
 
@@ -101,24 +116,28 @@ public class PlayerAction : MonoBehaviour {
 	public void BabyRiceUse(){
 
 		objectToSpawn = riceFriends [0];
+		source.PlayOneShot (ASound, 1f);
 
 	}
 
 	public void SlippyRiceUse(){
 	
 		objectToSpawn = riceFriends [1];
+		source.PlayOneShot (BSound, 1f);
 
 	}
 
 	public void BouncyRiceUse(){
 
 		objectToSpawn = riceFriends [2];
+		source.PlayOneShot (DSound, 1f);
 
 	}
 
 	public void HeavyRiceUse(){
 
 		objectToSpawn = riceFriends [3];
+		source.PlayOneShot (CSound, 1f);
 
 	}
 
@@ -127,6 +146,8 @@ public class PlayerAction : MonoBehaviour {
 		if (otherCollider.gameObject.tag == "Enemy") {
 			GameObject newObject = Instantiate (particleThing) as GameObject;
 			particles = newObject.GetComponent<ParticleSystem> ();
+
+			source.PlayOneShot (Damage, 1f);
 		}
 
 	}

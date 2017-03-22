@@ -52,7 +52,7 @@ public class ScoreCount1 : MonoBehaviour {
 
 		if (score <= 1) {
 
-			winText.text = "Eh...";
+			winText.text = " ";
 
 		}
 
