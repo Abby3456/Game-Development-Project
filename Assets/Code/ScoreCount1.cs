@@ -27,7 +27,7 @@ public class ScoreCount1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		score = 1000f - (riceSpent * 5);
+		score = 1500f - (riceSpent * 5);
 
 		SetCountText ();
 
@@ -44,7 +44,7 @@ public class ScoreCount1 : MonoBehaviour {
 		countText.text = "Score: " + score;
 		numberText.text = "Rice Spent: " + riceSpent;
 
-		if (score >= 1001) {
+		if (score >= 2000) {
 
 			winText.text = "PERFECT";
 
@@ -65,6 +65,15 @@ public class ScoreCount1 : MonoBehaviour {
 		}
 
 		if (otherCollider.gameObject.tag == "Water") {
+			riceSpent = riceSpent - 50;
+		}
+		if (otherCollider.gameObject.tag == "Water1") {
+			riceSpent = riceSpent - 50;
+		}
+		if (otherCollider.gameObject.tag == "Water2") {
+			riceSpent = riceSpent - 50;
+		}
+		if (otherCollider.gameObject.tag == "Water3") {
 			riceSpent = riceSpent - 50;
 		}
 	}

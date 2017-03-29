@@ -74,9 +74,9 @@ public class OtherCode : MonoBehaviour {
 	//public bool shift;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
-
+		source = GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
