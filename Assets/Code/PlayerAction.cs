@@ -14,6 +14,7 @@ public class PlayerAction : MonoBehaviour {
 	public Color color = new Color(84, 184, 255);
 
 	public GameObject objectToSpawn;
+	public AudioClip soundToPlay;
 
 	public GameObject[] Hearts;
 
@@ -28,6 +29,8 @@ public class PlayerAction : MonoBehaviour {
 	public GameObject Player;
 
 	public GameObject Pan;
+
+	public AudioClip[] pressSounds;
 
 	public AudioClip ASound;
 	public AudioClip BSound;
@@ -81,8 +84,7 @@ public class PlayerAction : MonoBehaviour {
 
 			score.riceSpent += 1;
 
-			source.PlayOneShot (CSound, 1f);
-
+			source.PlayOneShot (soundToPlay, 1f);
 
 		}
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -96,7 +98,8 @@ public class PlayerAction : MonoBehaviour {
 
 			score.riceSpent += 1;
 
-			source.PlayOneShot (CSound, 1f);
+			source.PlayOneShot (soundToPlay, 1f);
+
 
 		}
 
@@ -113,9 +116,18 @@ public class PlayerAction : MonoBehaviour {
 		Hearts = heart;
 	}
 
+	public void BabyRiceUseAwake(){
+		
+		objectToSpawn = riceFriends [0];
+		soundToPlay = pressSounds [0];
+		//source.PlayOneShot (ASound, 1f);
+
+	}
+
 	public void BabyRiceUse(){
 
 		objectToSpawn = riceFriends [0];
+		soundToPlay = pressSounds [0];
 		source.PlayOneShot (ASound, 1f);
 
 	}
@@ -123,6 +135,7 @@ public class PlayerAction : MonoBehaviour {
 	public void SlippyRiceUse(){
 	
 		objectToSpawn = riceFriends [1];
+		soundToPlay = pressSounds [1];
 		source.PlayOneShot (BSound, 1f);
 
 	}
@@ -130,6 +143,7 @@ public class PlayerAction : MonoBehaviour {
 	public void BouncyRiceUse(){
 
 		objectToSpawn = riceFriends [2];
+		soundToPlay = pressSounds [3];
 		source.PlayOneShot (DSound, 1f);
 
 	}
@@ -137,6 +151,7 @@ public class PlayerAction : MonoBehaviour {
 	public void HeavyRiceUse(){
 
 		objectToSpawn = riceFriends [3];
+		soundToPlay = pressSounds [2];
 		source.PlayOneShot (CSound, 1f);
 
 	}

@@ -93,7 +93,7 @@ public class OtherCode : MonoBehaviour {
 	{
 		SpriteRenderer Player = GetComponent<SpriteRenderer> ();
 		if (otherCollider.gameObject.tag == "Water") {
-			Player.color = Color.blue;
+			//Player.color = Color.blue;
 			Debug.Log ("This is working");
 
 			Destroy (waterA.gameObject);
@@ -104,7 +104,7 @@ public class OtherCode : MonoBehaviour {
 		}
 
 		if (otherCollider.gameObject.tag == "Water1") {
-			Player.color = Color.blue;
+			//Player.color = Color.blue;
 			Debug.Log ("This is working");
 
 			Destroy (waterB.gameObject);
@@ -115,7 +115,7 @@ public class OtherCode : MonoBehaviour {
 		}
 
 		if (otherCollider.gameObject.tag == "Water2") {
-			Player.color = Color.blue;
+			//Player.color = Color.blue;
 			Debug.Log ("This is working");
 
 			Destroy (waterC.gameObject);
@@ -126,7 +126,7 @@ public class OtherCode : MonoBehaviour {
 		}
 
 		if (otherCollider.gameObject.tag == "Water3") {
-			Player.color = Color.blue;
+			//Player.color = Color.blue;
 			Debug.Log ("This is working");
 
 			Destroy (waterD.gameObject);

@@ -9,13 +9,21 @@ public class MovementCode : MonoBehaviour {
 	public float moveForce = 365f;
 	public float maxSpeed = 5f;
 	public float jumpForce = 1000f;
-	public Transform groundCheck;
+
 
 	public AudioClip jumpSound;
 	private AudioSource source;
 
 	private bool grounded = false;
+	public Transform groundCheck;
+
+	private bool damaged = false;
+
 	private Rigidbody2D rb2d;
+
+	bool facingLeft = true;
+
+	Animator anim;
 
 	void Awake () {
 
@@ -27,18 +35,18 @@ public class MovementCode : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		anim = GetComponent <Animator> ();
+		anim.SetBool ("Damaged", damaged);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-
-
 		grounded = Physics2D.Linecast (transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Environment"));
 
 		if (Input.GetButtonDown ("Jump") && grounded) {
 
+			anim.SetBool ("Ground", false);
 			jump = true;
 
 			source.PlayOneShot (jumpSound, 1f);
@@ -49,7 +57,12 @@ public class MovementCode : MonoBehaviour {
 
 	void FixedUpdate(){
 
+		anim.SetBool ("Ground", grounded);
+		anim.SetFloat ("vSpeed", rb2d.velocity.y);
+
 		float h = Input.GetAxis ("Horizontal");
+
+		anim.SetFloat ("Speed", Mathf.Abs (h));
 
 		if (h * rb2d.velocity.x < maxSpeed) {
 
@@ -70,6 +83,33 @@ public class MovementCode : MonoBehaviour {
 
 		}
 
+		if (h < 0 && !facingLeft)
+			Flip ();
+		else if (h > 0 && facingLeft)
+			Flip ();
+
+
+	}
+
+	void Flip(){
+		facingLeft = !facingLeft;
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+	}
+
+	void OnTriggerEnter2D(Collider2D otherCollider){
+
+		if (otherCollider.gameObject.tag == "Enemy") {
+
+			anim.SetBool ("Damaged", true);
+		
+		} else {
+			anim.SetBool ("Damaged", false);
+		}
+
 	}
 
 }
+
+

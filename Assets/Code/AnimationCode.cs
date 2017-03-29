@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AnimationCode : MonoBehaviour {
 
-	Animator animator;
+//	Animator animator;
 
 
 	// Use this for initialization
 	void Start () {
-		animator = this.GetComponent<Animator>();
+//		animator = this.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
