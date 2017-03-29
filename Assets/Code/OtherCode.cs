@@ -9,6 +9,9 @@ public class OtherCode : MonoBehaviour {
 	public GameObject waterC;
 	public GameObject waterD;
 
+	public AudioClip Water;
+	private AudioSource source;
+
 	public GameObject particleThing;
 	public ParticleSystem particles;
 	public GameObject Player;
@@ -86,6 +89,7 @@ public class OtherCode : MonoBehaviour {
 			Player.color = Color.red;
 			Debug.Log ("This is also working");
 
+
 		}
 	}
 
@@ -101,6 +105,8 @@ public class OtherCode : MonoBehaviour {
 			GameObject newObject = Instantiate (particleThing) as GameObject;
 			particles = newObject.GetComponent<ParticleSystem> ();
 
+			source.PlayOneShot (Water, 1f);
+
 		}
 
 		if (otherCollider.gameObject.tag == "Water1") {
@@ -111,6 +117,7 @@ public class OtherCode : MonoBehaviour {
 
 			GameObject newObject = Instantiate (particleThing) as GameObject;
 			particles = newObject.GetComponent<ParticleSystem> ();
+			source.PlayOneShot (Water, 1f);
 
 		}
 
@@ -122,6 +129,7 @@ public class OtherCode : MonoBehaviour {
 
 			GameObject newObject = Instantiate (particleThing) as GameObject;
 			particles = newObject.GetComponent<ParticleSystem> ();
+			source.PlayOneShot (Water, 1f);
 
 		}
 
@@ -133,6 +141,7 @@ public class OtherCode : MonoBehaviour {
 
 			GameObject newObject = Instantiate (particleThing) as GameObject;
 			particles = newObject.GetComponent<ParticleSystem> ();
+			source.PlayOneShot (Water, 1f);
 
 		}
 	}
