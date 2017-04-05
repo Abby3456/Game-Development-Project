@@ -16,8 +16,6 @@ public class PlayerAction : MonoBehaviour {
 	public GameObject objectToSpawn;
 	public AudioClip soundToPlay;
 
-	public GameObject[] Hearts;
-
 	public bool freezeRotation;
 
 	public RigidbodyConstraints constraints;
@@ -106,15 +104,6 @@ public class PlayerAction : MonoBehaviour {
 
 	}
 		
-
-	public void GroupResize (int Size, ref GameObject[] Hearts) {
-		GameObject[] heart = new GameObject[Size];
-		for(int c = 1; c < Mathf.Min(Size, Hearts.Length); c++) {
-			heart [c] = Hearts [c];
-
-		}
-		Hearts = heart;
-	}
 
 	public void BabyRiceUseAwake(){
 		
