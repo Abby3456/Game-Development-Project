@@ -17,7 +17,7 @@ public class MovementCode : MonoBehaviour {
 	private bool grounded = false;
 	public Transform groundCheck;
 
-	private bool damaged = false;
+	public bool damaged = false;
 
 	private Rigidbody2D rb2d;
 
@@ -98,14 +98,24 @@ public class MovementCode : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
-	void OnTriggerEnter2D(Collider2D otherCollider){
+	void OnTriggerStay2D(Collider2D otherCollider){
 
 		if (otherCollider.gameObject.tag == "Enemy") {
 
 			anim.SetBool ("Damaged", true);
+			damaged = true;
 		
 		} else {
 			anim.SetBool ("Damaged", false);
+			damaged = false;
+		}
+
+	}
+
+	void OnTriggerExit2D(Collider2D othercollider){
+		if (othercollider.gameObject.tag == "Enemy") {
+			anim.SetBool ("Damaged", false);
+			damaged = false;
 		}
 
 	}

@@ -61,7 +61,6 @@ public class HeavyRice : MonoBehaviour {
 
 			timer += Time.deltaTime;
 		}
-		Debug.Log ("IT WORKS");
 	}
 
 	public void BeginShake(ShakeTypes shake)

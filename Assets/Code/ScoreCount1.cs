@@ -64,6 +64,10 @@ public class ScoreCount1 : MonoBehaviour {
 			riceSpent = riceSpent + 10;
 		}
 
+		if (otherCollider.gameObject.tag == "Enemy") {
+			riceSpent = riceSpent + 10;
+		}
+
 		if (otherCollider.gameObject.tag == "Water") {
 			riceSpent = riceSpent - 50;
 		}
@@ -76,6 +80,11 @@ public class ScoreCount1 : MonoBehaviour {
 		if (otherCollider.gameObject.tag == "Water3") {
 			riceSpent = riceSpent - 50;
 		}
+	}
+
+	void OnTriggerStay2D(Collider2D otherCollider){
+		
+
 	}
 		
 }

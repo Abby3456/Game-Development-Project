@@ -40,6 +40,8 @@ public class PlayerAction : MonoBehaviour {
 	void Awake () {
 
 		source = GetComponent<AudioSource> ();
+		objectToSpawn = riceFriends [0];
+		soundToPlay = pressSounds [0];
 
 	}
 
@@ -100,7 +102,6 @@ public class PlayerAction : MonoBehaviour {
 
 
 		}
-
 
 	}
 		
