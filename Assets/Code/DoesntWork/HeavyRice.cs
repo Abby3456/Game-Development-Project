@@ -75,12 +75,13 @@ public class HeavyRice : MonoBehaviour {
 
 	}
 
-	public void OnTriggerEnter2D(Collider2D otherCollider){
+	/*public void OnTriggerEnter2D(Collider2D otherCollider){
 		if (otherCollider.gameObject.tag == "Button") {
-
+			Debug.Log ("Work");
 			Destroy (Door.gameObject);
 
+
 		}
-	}
+	}*/
 
 }

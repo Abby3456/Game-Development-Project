@@ -37,6 +37,16 @@ public class OtherCode : MonoBehaviour {
 
 
 		}
+
+		if (particles != null) {
+
+			if (!particles.IsAlive()) {
+
+				Destroy (particles.gameObject);
+	}
+
+		}
+
 	}
 
 	public void OnTriggerEnter2D (Collider2D otherCollider)

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class appearScript : MonoBehaviour {
 
-	public GameObject button;
-	public buttonTouch buttonTouch;
+//	public GameObject button;
+//	public buttonTouch buttonTouch;
 
 	// Use this for initialization
 	void Start () {
 		
-		buttonTouch = (buttonTouch)button.GetComponent (typeof(buttonTouch));
+//		buttonTouch = (buttonTouch)button.GetComponent (typeof(buttonTouch));
 
 	}
 	
@@ -18,10 +18,10 @@ public class appearScript : MonoBehaviour {
 	void Update () {
 
 
-		if (buttonTouch.touched == true) {
-			this.GetComponent<SpriteRenderer> ().enabled = true;
-			this.GetComponent<CircleCollider2D> ().enabled = true;
-		}
+//		if (buttonTouch.touched == true) {
+//			this.GetComponent<SpriteRenderer> ().enabled = true;
+//			this.GetComponent<CircleCollider2D> ().enabled = true;
+//		}
 
 
 	}

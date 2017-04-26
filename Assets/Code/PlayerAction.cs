@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerAction : MonoBehaviour {
 
-	public ScoreCount1 score;
+	public RevisedScoreCound score;
 
 	public Transform player;
 	public Vector3 Offset;
@@ -14,6 +14,7 @@ public class PlayerAction : MonoBehaviour {
 	public Color color = new Color(84, 184, 255);
 
 	public GameObject objectToSpawn;
+	public GameObject buttonPressSpawn;
 	public AudioClip soundToPlay;
 
 	public bool freezeRotation;
@@ -21,6 +22,7 @@ public class PlayerAction : MonoBehaviour {
 	public RigidbodyConstraints constraints;
 
 	public GameObject[] riceFriends;
+	public GameObject[] buttonCollider;
 
 	public GameObject particleThing;
 	public ParticleSystem particles;
@@ -82,9 +84,18 @@ public class PlayerAction : MonoBehaviour {
 			newObjPos.y = player.position.y;
 			newObject.transform.position = newObjPos + Offset;
 
+			source.PlayOneShot (soundToPlay, 1f);
+
 			score.riceSpent += 1;
 
-			source.PlayOneShot (soundToPlay, 1f);
+			//source.PlayOneShot (soundToPlay, 1f);
+
+			GameObject secondObject = Instantiate(buttonPressSpawn) as GameObject;
+			SpriteRenderer secondObjSprite = secondObject.GetComponent<SpriteRenderer>();
+			Vector3 secondObjectPos = secondObject.transform.position + Offset;
+			secondObjectPos.x = player.position.x;
+			secondObjectPos.y = player.position.y;
+			secondObject.transform.position = secondObjectPos + Offset;
 
 		}
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -96,9 +107,18 @@ public class PlayerAction : MonoBehaviour {
 			newObjPos.y = player.position.y;
 			newObject.transform.position = newObjPos - Offset;
 
+			source.PlayOneShot (soundToPlay, 1f);
+
 			score.riceSpent += 1;
 
-			source.PlayOneShot (soundToPlay, 1f);
+			//source.PlayOneShot (soundToPlay, 1f);
+
+			GameObject secondObject = Instantiate(buttonPressSpawn) as GameObject;
+			SpriteRenderer secondObjSprite = secondObject.GetComponent<SpriteRenderer>();
+			Vector3 secondObjectPos = secondObject.transform.position + Offset;
+			secondObjectPos.x = player.position.x;
+			secondObjectPos.y = player.position.y;
+			secondObject.transform.position = secondObjectPos - Offset;
 
 
 		}
@@ -119,6 +139,7 @@ public class PlayerAction : MonoBehaviour {
 		objectToSpawn = riceFriends [0];
 		soundToPlay = pressSounds [0];
 		source.PlayOneShot (ASound, 1f);
+		buttonPressSpawn = buttonCollider [0];
 
 	}
 
@@ -127,6 +148,7 @@ public class PlayerAction : MonoBehaviour {
 		objectToSpawn = riceFriends [1];
 		soundToPlay = pressSounds [1];
 		source.PlayOneShot (BSound, 1f);
+		buttonPressSpawn = buttonCollider [0];
 
 	}
 
@@ -135,6 +157,7 @@ public class PlayerAction : MonoBehaviour {
 		objectToSpawn = riceFriends [2];
 		soundToPlay = pressSounds [3];
 		source.PlayOneShot (DSound, 1f);
+		buttonPressSpawn = buttonCollider [0];
 
 	}
 
@@ -143,6 +166,7 @@ public class PlayerAction : MonoBehaviour {
 		objectToSpawn = riceFriends [3];
 		soundToPlay = pressSounds [2];
 		source.PlayOneShot (CSound, 1f);
+		buttonPressSpawn = buttonCollider [1];
 
 	}
 
